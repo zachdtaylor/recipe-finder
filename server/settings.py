@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # Project Apps Listed First
     'users.apps.UserAppConfig',
+    'recipe',
 
     'django.contrib.admin',
     'django.contrib.auth',
