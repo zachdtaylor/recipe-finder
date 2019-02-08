@@ -8,12 +8,12 @@ from measurement.measures import Volume
 class Ingredient(models.Model):
     name = models.CharField(max_length=100)
 
-class Amount(models.Model):
-    measurement = MeasurementField(measurement=Volume, primary_key=True)
-    # recipe = models.ForeignKey(Recipe, models.CASCADE, related_name='amounts')
+# class Amount(models.Model):
+#     measurement = MeasurementField(measurement=Volume, primary_key=True)
+#     # recipe = models.ForeignKey(Recipe, models.CASCADE, related_name='amounts')
 
-    # Ingredients
-    # type amount recipe
+#     # Ingredients
+#     # type amount recipe
 
 class Recipe(models.Model):
     name = models.TextField()
