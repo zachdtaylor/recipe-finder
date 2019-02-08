@@ -25,6 +25,7 @@ SECRET_KEY = 'm#vqw87h5gr@6xg2_1*-=af6!qslhwz6r)zva3li0gltpw8s(w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+CORS_ORIGIN_ALLOW_ALL = DEBUG 
 
 ALLOWED_HOSTS = []
 
@@ -35,6 +36,7 @@ INSTALLED_APPS = [
     # Project Apps Listed First
     'users.apps.UserAppConfig',
     'recipe',
+    'corsheaders',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -66,6 +68,7 @@ GRAPHQL_JWT = {
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',

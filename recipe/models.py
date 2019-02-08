@@ -6,7 +6,7 @@ from measurement.measures import Volume
 #   name bacon
 
 class Ingredient(models.Model):
-    name = models.TextField(primary_key=True)
+    name = models.CharField(max_length=100)
 
 class Amount(models.Model):
     measurement = MeasurementField(measurement=Volume, primary_key=True)
