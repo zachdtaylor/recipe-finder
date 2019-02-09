@@ -1,6 +1,6 @@
 import graphene
 from graphene_django.types import DjangoObjectType
-from recipe.models import Recipe, Ingredient, Amount
+from recipe.models import Recipe, Ingredient
 from graphql import GraphQLError
 from graphql_jwt.decorators import login_required
 
@@ -12,9 +12,9 @@ class IngredientType(DjangoObjectType):
   class Meta:
     model = Ingredient
 
-class AmountType(DjangoObjectType):
-  class Meta:
-    model = Amount
+# class AmountType(DjangoObjectType):
+#   class Meta:
+#     model = Amount
 
 class Query(graphene.ObjectType):
   recipe = graphene.List(
