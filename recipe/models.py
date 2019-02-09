@@ -1,6 +1,6 @@
 from django.db import models
-from django_measurement.models import MeasurementField
-from measurement.measures import Volume
+#from django_measurement.models import MeasurementField
+#from measurement.measures import Volume
 
 # class IngredientTypes
 #   name bacon
