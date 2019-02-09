@@ -1,0 +1,6 @@
+.textarea-instructions {
+  overflow: scroll;
+  resize: none;
+  width: 360px;
+  height: 180px;
+}
