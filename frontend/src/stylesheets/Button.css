@@ -1,0 +1,15 @@
+.button-main {
+  width: 370px;
+  height: 180px;
+  background: #A2B327;
+  color: white;
+  font-size: 48px;
+}
+
+.button-to-home {
+  width: 300px;
+  height: 80px;
+  background: #A2B327;
+  color: white;
+  font-size: 36px;
+}
