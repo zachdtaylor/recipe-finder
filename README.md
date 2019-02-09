@@ -5,3 +5,9 @@ This is an app that lets your search for recipes based on ingredient. My wife an
 [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
 
 [Django](https://www.djangoproject.com/) - The web framework for perfectionists with deadlines.
+
+[Graphene](https://graphene-python.org/) - GraphQL in Python made easy.
+
+[GraphQL](https://graphql.org/) - Query language
+
+[Apollo Client](https://www.apollographql.com/docs/react/) - GraphQL client
