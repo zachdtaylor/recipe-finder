@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     # Project Apps Listed First
     'users.apps.UserAppConfig',
     'recipe',
-    'corsheaders',
+ #   'corsheaders',
 
     'django.contrib.admin',
     'django.contrib.auth',
