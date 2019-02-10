@@ -9,6 +9,16 @@ class ChooseRecipe extends React.Component {
   }
 
   render() {
+    console.log("Choose Recipe state:", this.state.recipes)
+    if (this.state.recipes.length === 0) {
+      return (
+        <div>
+          <h1>Choose a Recipe</h1>
+          Sorry, you haven't stored any recipes that you can make with those ingredients!
+        </div>
+      )
+    }
+
     return (
       <div>
         <h1>Choose a Recipe</h1>
