@@ -32,7 +32,7 @@ SECRET_KEY = 'm#vqw87h5gr@6xg2_1*-=af6!qslhwz6r)zva3li0gltpw8s(w'
 DEBUG = True
 CORS_ORIGIN_ALLOW_ALL = DEBUG 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ec2-18-223-184-174.us-east-2.compute.amazonaws.com']
 
 
 # Application definition
