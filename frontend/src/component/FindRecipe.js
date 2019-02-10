@@ -4,7 +4,7 @@ import { withApollo } from 'react-apollo';
 import gql from 'graphql-tag';
 import { Redirect } from 'react-router-dom'
 
-class FindMeal extends React.Component {
+class FindRecipe extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -13,6 +13,14 @@ class FindMeal extends React.Component {
       queryFinished: false,
       data: null
     }
+  }
+
+  arrayContainsArray = (superset, subset) => {
+    return subset.every(value => (superset.indexOf(value) >= 0))
+  }
+
+  format = (str) => {
+    return str.toLowerCase().trim()
   }
 
   query = () => {
@@ -29,7 +37,10 @@ class FindMeal extends React.Component {
         }`
     }).then(res => {
       console.log(res)
-      this.setState({ data: res.data, queryFinished: true })
+      let ingredients = this.state.ingredients.map(str => this.format(str))
+      let data = res.data.recipe.filter((recipe) => 
+        this.arrayContainsArray(ingredients, recipe.ingredients.map(obj => this.format(obj.name))))
+      this.setState({ data: data, queryFinished: true })
     })
   }
 
@@ -55,7 +66,7 @@ class FindMeal extends React.Component {
       return(
         <Redirect to={{
           pathname: '/chooserecipe',
-          state: { data: this.state.data.recipe }
+          state: { data: this.state.data }
         }}/>
       )
     }
@@ -74,4 +85,4 @@ class FindMeal extends React.Component {
   }
 }
 
-export default withApollo(FindMeal)
+export default withApollo(FindRecipe)
