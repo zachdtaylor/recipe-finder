@@ -8,7 +8,7 @@ const ListBuilder = props => {
       <ul>
         {props.items.map((item, i) => 
         <li key={i}>
-          {item}<button onClick={() => props.removeItem(item)}>Remove</button>
+          {item}<button type="button" onClick={() => props.removeItem(item)}>Remove</button>
         </li>)}
       </ul>
     </div>

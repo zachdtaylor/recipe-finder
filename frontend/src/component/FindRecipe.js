@@ -1,7 +1,7 @@
 import React from 'react'
 import ListBuilder from './ListBuilder'
-import { withApollo } from 'react-apollo';
-import gql from 'graphql-tag';
+import { withApollo } from 'react-apollo'
+import gql from 'graphql-tag'
 import { Redirect } from 'react-router-dom'
 
 class FindRecipe extends React.Component {
@@ -15,11 +15,11 @@ class FindRecipe extends React.Component {
     }
   }
 
-  arrayContainsArray = (superset, subset) => {
-    return subset.every(value => (superset.indexOf(value) >= 0))
+  arrayContainsSome = (superset, subset) => {
+    return subset.some(value => (superset.indexOf(value) >= 0))
   }
 
-  format = (str) => {
+  format = str => {
     return str.toLowerCase().trim()
   }
 
@@ -39,7 +39,7 @@ class FindRecipe extends React.Component {
       console.log(res)
       let ingredients = this.state.ingredients.map(str => this.format(str))
       let data = res.data.recipe.filter((recipe) => 
-        this.arrayContainsArray(ingredients, recipe.ingredients.map(obj => this.format(obj.name))))
+        this.arrayContainsSome(ingredients, recipe.ingredients.map(obj => this.format(obj.name))))
       this.setState({ data: data, queryFinished: true })
     })
   }
