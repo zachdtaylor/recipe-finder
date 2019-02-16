@@ -2,8 +2,10 @@ import React from 'react'
 import { withApollo } from 'react-apollo'
 import ListBuilder from './ListBuilder'
 import '../stylesheets/AddRecipe.css'
-import gql from 'graphql-tag';
-import Button from './Button';
+import gql from 'graphql-tag'
+import StyledButton from './StyledButton'
+import { Input } from 'element-react'
+import 'element-theme-default'
 
 class AddRecipe extends React.Component {
   constructor(props) {
@@ -18,16 +20,16 @@ class AddRecipe extends React.Component {
     this.state = this.emptyState
   }
 
-  handleTitleChange = event => {
-    this.setState({ title: event.target.value })
+  handleTitleChange = value => {
+    this.setState({ title: value })
   }
 
   handleInstructionsChange = event => {
     this.setState({ instructions: event.target.value })
   }
 
-  handleListTextChange = event => {
-    this.setState({ listText: event.target.value })
+  handleListTextChange = value => {
+    this.setState({ listText: value })
   }
 
   postRecipe = () => {
@@ -68,7 +70,7 @@ class AddRecipe extends React.Component {
       return (
         <div>
           Your recipe was saved.<br/>
-          <Button page="/" class="button-to-home" text="Home"/>
+          <StyledButton page="/" class="button-to-home" text="Home"/>
         </div>
       )
     }
@@ -76,13 +78,14 @@ class AddRecipe extends React.Component {
     return (
       <div>
         <h1>Add Recipe</h1>
-        Title: <input type="text" onChange={this.handleTitleChange}/><br/>
+        <Input type="text" placeholder="Title" onChange={this.handleTitleChange}/><br/>
         Ingredients:<br/>
         <ListBuilder addItem={this.addIngredient}
                      removeItem={this.removeIngredient}
                      items={this.state.ingredients}
                      listText={this.state.listText}
-                     handleChange={this.handleListTextChange}/>
+                     handleChange={this.handleListTextChange}
+                     width="200px"/>
         Instructions:<br/>
         <textarea className="textarea-instructions" onChange={this.handleInstructionsChange}/><br/>
         <button type="button" onClick={this.postRecipe}>Save</button>

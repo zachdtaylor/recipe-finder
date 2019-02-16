@@ -1,8 +1,10 @@
 import React from 'react'
 import ListBuilder from './ListBuilder'
-import { withApollo } from 'react-apollo';
-import gql from 'graphql-tag';
+import { withApollo } from 'react-apollo'
+import gql from 'graphql-tag'
 import { Redirect } from 'react-router-dom'
+import { Button } from 'element-react'
+import 'element-theme-default'
 
 class FindRecipe extends React.Component {
   constructor(props) {
@@ -16,12 +18,13 @@ class FindRecipe extends React.Component {
   }
 
   arrayContainsArray = (superset, subset) => {
-    return subset.every(value => (superset.indexOf(value) >= 0))
+    superset = superset.map(val => this.format(val))
+    return subset.every(val => {
+      return superset.indexOf(this.format(val)) >= 0
+    })
   }
 
-  format = (str) => {
-    return str.toLowerCase().trim()
-  }
+  format = str => str.toLowerCase().trim()
 
   query = () => {
     this.props.client.query({
@@ -37,19 +40,15 @@ class FindRecipe extends React.Component {
         }`
     }).then(res => {
       console.log(res)
-      let ingredients = this.state.ingredients.map(str => this.format(str))
-      let data = res.data.recipe.filter((recipe) => 
-        this.arrayContainsArray(ingredients, recipe.ingredients.map(obj => this.format(obj.name))))
+      let data = res.data.recipe.filter(recipe => 
+        this.arrayContainsArray(recipe.ingredients.map(item => item.name),
+                               this.state.ingredients))
       this.setState({ data: data, queryFinished: true })
     })
   }
 
-  handleTitleChange = event => {
-    this.setState({ title: event.target.value })
-  }
-
-  handleListTextChange = event => {
-    this.setState({ listText: event.target.value })
+  handleListTextChange = value => {
+    this.setState({ listText: value })
   }
 
   addIngredient = () => {
@@ -66,7 +65,7 @@ class FindRecipe extends React.Component {
       return(
         <Redirect to={{
           pathname: '/chooserecipe',
-          state: { data: this.state.data }
+          state: { data: this.state.data, ingredients: this.state.ingredients }
         }}/>
       )
     }
@@ -78,8 +77,9 @@ class FindRecipe extends React.Component {
                      removeItem={this.removeIngredient}
                      items={this.state.ingredients}
                      listText={this.state.listText}
-                     handleChange={this.handleListTextChange}/>
-        <button type="button"  onClick={this.query}>Submit</button>
+                     handleChange={this.handleListTextChange}
+                     width="400px"/>
+        <Button type="button"  onClick={this.query}>Submit</Button>
       </form>
     )
   }

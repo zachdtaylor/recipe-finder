@@ -1,0 +1,38 @@
+.ingredientList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.button-add {
+  background: #292C3F;
+  color: white;
+}
+
+.button-add:hover {
+  color: #292C3F;
+  border: #292C3F;
+  background: white;
+}
+
+.button-add:focus {
+  outline: none;
+}
+
+.button-remove {
+  background: #AA1B1F;
+  color: white;
+  float: right;
+}
+
+.list-container {
+  width: 50%;
+}
+
+.list-item {
+  position: relative;
+  background: white;
+  height: 36px;
+  display: table-cell;
+  vertical-align: middle;
+  padding-left: 12px;
+}
