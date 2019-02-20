@@ -5,6 +5,7 @@ import gql from 'graphql-tag'
 import { Redirect } from 'react-router-dom'
 import { Button } from 'element-react'
 import 'element-theme-default'
+import '../stylesheets/FindRecipe.css'
 
 class FindRecipe extends React.Component {
   constructor(props) {
@@ -71,16 +72,16 @@ class FindRecipe extends React.Component {
     }
 
     return (
-      <form>
-        <h1>What Ingredients Do You Have?</h1>
+      <div className="container">
+        <h1 style={{fontSize: "48px"}}>What Ingredients Do You Have?</h1>
         <ListBuilder addItem={this.addIngredient}
                      removeItem={this.removeIngredient}
                      items={this.state.ingredients}
                      listText={this.state.listText}
                      handleChange={this.handleListTextChange}
                      width="400px"/>
-        <Button type="button"  onClick={this.query}>Submit</Button>
-      </form>
+        <Button type="button" className="button-submit" onClick={this.query}>Submit</Button>
+      </div>
     )
   }
 }

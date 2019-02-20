@@ -79,7 +79,7 @@ class AddRecipe extends React.Component {
       <div className="content">
         <h1 style={{fontSize: "48px"}}>Add a Recipe</h1>
         <div className="wrapper">
-          <div className="list-container">
+          <div className="list">
             <ListBuilder addItem={this.addIngredient}
                          removeItem={this.removeIngredient}
                          items={this.state.ingredients}

@@ -16,6 +16,11 @@
   margin: 0 auto;
 }
 
+.list {
+  height: 100%;
+  background: white;
+}
+
 .button-save {
   align-self: center;
   margin-top: 2%;

@@ -14,29 +14,26 @@ class ListBuilder extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <div>
+      <div className="listbuilder-container">
         <Input type="text" placeholder="Type Ingredient (return to add)" value={this.props.listText} 
                className="input" onChange={this.props.handleChange} 
                onKeyPress={this.handleEnterPressed}/>
-        </div>
-        <div className="list-container">
-          <ul className="ingredientList">
-            {this.props.items.map((item, i) => 
-            <li key={i}>
-            <div style={{display: "table", width: "100%"}}>
-              <div className="list-item">
-                {item}
-                <Button nativeType="button" className="button-remove" 
-                        onClick={() => this.props.removeItem(item)}>
-                  Remove
-                </Button>
+          <div className="list-container">
+            <ul className="ingredientList">
+              {this.props.items.map((item, i) => 
+              <li key={i}>
+              <div style={{display: "table", width: "100%"}}>
+                <div className="list-item">
+                  {item}
+                  <Button nativeType="button" className="button-remove" 
+                          onClick={() => this.props.removeItem(item)}>
+                    Remove
+                  </Button>
+                </div>
               </div>
-            </div>
-            </li>)}
-          </ul>
-        </div>
-        
+              </li>)}
+            </ul>
+          </div>
       </div>
     )
   }
