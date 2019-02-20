@@ -24,15 +24,12 @@
   float: right;
 }
 
-.list-container {
-  width: 50%;
-}
-
 .list-item {
   position: relative;
   background: white;
   height: 36px;
   display: table-cell;
+  text-align: left;
   vertical-align: middle;
   padding-left: 12px;
 }

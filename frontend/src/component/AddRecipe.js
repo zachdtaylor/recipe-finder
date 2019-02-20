@@ -4,7 +4,7 @@ import ListBuilder from './ListBuilder'
 import '../stylesheets/AddRecipe.css'
 import gql from 'graphql-tag'
 import StyledButton from './StyledButton'
-import { Input } from 'element-react'
+import { Input, Button } from 'element-react'
 import 'element-theme-default'
 
 class AddRecipe extends React.Component {
@@ -76,19 +76,27 @@ class AddRecipe extends React.Component {
     }
 
     return (
-      <div>
+      <div className="content">
         <h1>Add Recipe</h1>
-        <Input type="text" placeholder="Title" onChange={this.handleTitleChange}/><br/>
-        Ingredients:<br/>
-        <ListBuilder addItem={this.addIngredient}
-                     removeItem={this.removeIngredient}
-                     items={this.state.ingredients}
-                     listText={this.state.listText}
-                     handleChange={this.handleListTextChange}
-                     width="200px"/>
-        Instructions:<br/>
-        <textarea className="textarea-instructions" onChange={this.handleInstructionsChange}/><br/>
-        <button type="button" onClick={this.postRecipe}>Save</button>
+        <div className="wrapper">
+          <div className="list-container">
+            <ListBuilder addItem={this.addIngredient}
+                         removeItem={this.removeIngredient}
+                         items={this.state.ingredients}
+                         listText={this.state.listText}
+                         handleChange={this.handleListTextChange}
+                         width="200px"/>
+          </div>
+          <div className="title-text-container">
+            <Input type="text" placeholder="Title" onChange={this.handleTitleChange}/><br/>
+            <Input className="textarea-instructions"
+                   type="textarea"
+                   placeholder="Instructions..."
+                   onChange={this.handleInstructionsChange}/><br/>
+          </div>
+        </div>
+        <Button className="button-save" nativeType="button" 
+                onClick={this.postRecipe}>Save</Button>
       </div>
     )
   }

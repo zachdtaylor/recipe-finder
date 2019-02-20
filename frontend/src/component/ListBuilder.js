@@ -15,16 +15,16 @@ class ListBuilder extends React.Component {
   render() {
     return (
       <div className="container">
-        <div style={{width: this.props.width}}>
-        <Input type="text" value={this.props.listText} className="input"
-               onChange={this.props.handleChange} onKeyPress={this.handleEnterPressed}/>
-        <Button nativeType="button" className="button-add" onClick={this.props.addItem}>Add</Button><br/>
+        <div>
+        <Input type="text" placeholder="Type Ingredient... (return to add)" value={this.props.listText} 
+               className="input" onChange={this.props.handleChange} 
+               onKeyPress={this.handleEnterPressed}/>
         </div>
         <div className="list-container">
           <ul className="ingredientList">
             {this.props.items.map((item, i) => 
             <li key={i}>
-            <div style={{display: "table", width: this.props.width}}>
+            <div style={{display: "table", width: "100%"}}>
               <div className="list-item">
                 {item}
                 <Button nativeType="button" className="button-remove" 
@@ -43,6 +43,10 @@ class ListBuilder extends React.Component {
 }
 
 export default ListBuilder
+
+
+/* <Button nativeType="button" className="button-add" onClick={this.props.addItem}>Add</Button><br/> */
+
 
 
 
