@@ -4,7 +4,7 @@ import ListBuilder from './ListBuilder'
 import '../stylesheets/AddRecipe.css'
 import gql from 'graphql-tag'
 import StyledButton from './StyledButton'
-import { Input } from 'element-react'
+import { Input, Button } from 'element-react'
 import 'element-theme-default'
 
 class AddRecipe extends React.Component {
@@ -24,8 +24,8 @@ class AddRecipe extends React.Component {
     this.setState({ title: value })
   }
 
-  handleInstructionsChange = event => {
-    this.setState({ instructions: event.target.value })
+  handleInstructionsChange = value => {
+    this.setState({ instructions: value })
   }
 
   handleListTextChange = value => {
@@ -69,26 +69,34 @@ class AddRecipe extends React.Component {
     if (this.state.mutationFinished) {
       return (
         <div>
-          Your recipe was saved.<br/>
+          <h1 style={{fontSize: "48px"}}>Your recipe was saved.</h1><br/>
           <StyledButton page="/" class="button-to-home" text="Home"/>
         </div>
       )
     }
 
     return (
-      <div>
-        <h1>Add Recipe</h1>
-        <Input type="text" placeholder="Title" onChange={this.handleTitleChange}/><br/>
-        Ingredients:<br/>
-        <ListBuilder addItem={this.addIngredient}
-                     removeItem={this.removeIngredient}
-                     items={this.state.ingredients}
-                     listText={this.state.listText}
-                     handleChange={this.handleListTextChange}
-                     width="200px"/>
-        Instructions:<br/>
-        <textarea className="textarea-instructions" onChange={this.handleInstructionsChange}/><br/>
-        <button type="button" onClick={this.postRecipe}>Save</button>
+      <div className="addrecipe-content">
+        <h1 style={{fontSize: "48px"}}>Add a Recipe</h1>
+        <div className="wrapper">
+          <div className="list">
+            <ListBuilder addItem={this.addIngredient}
+                         removeItem={this.removeIngredient}
+                         items={this.state.ingredients}
+                         listText={this.state.listText}
+                         handleChange={this.handleListTextChange}
+                         width="200px"/>
+          </div>
+          <div className="title-text-container">
+            <Input type="text" placeholder="Title" onChange={this.handleTitleChange}/><br/>
+            <Input className="textarea-instructions"
+                   type="textarea"
+                   placeholder="Instructions..."
+                   onChange={this.handleInstructionsChange}/><br/>
+          </div>
+        </div>
+        <Button className="button-submit" nativeType="button" 
+                onClick={this.postRecipe}>Save</Button>
       </div>
     )
   }
