@@ -16,10 +16,10 @@ class FindRecipe extends React.Component {
     }
   }
 
-  arrayContainsArray = (superset, subset) => {
-    superset = superset.map(val => this.format(val))
+  recipeContainsIngredients = (superset, subset) => {
+    superset = superset.map(val => this.format(val)).join(" ")
     return subset.every(val => {
-      return superset.indexOf(this.format(val)) >= 0
+      return superset.includes(this.format(val))
     })
   }
 
@@ -40,8 +40,8 @@ class FindRecipe extends React.Component {
     }).then(res => {
       console.log(res)
       let data = res.data.recipe.filter(recipe => 
-        this.arrayContainsArray(recipe.ingredients.map(item => item.name),
-                                this.props.ingredients))
+        this.recipeContainsIngredients(recipe.ingredients.map(item => item.name),
+                                       this.props.ingredients))
       this.setState({ data: data, queryFinished: true })
     })
   }
