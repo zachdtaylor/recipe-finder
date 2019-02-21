@@ -76,7 +76,7 @@ class AddRecipe extends React.Component {
     }
 
     return (
-      <div className="content">
+      <div className="addrecipe-content">
         <h1 style={{fontSize: "48px"}}>Add a Recipe</h1>
         <div className="wrapper">
           <div className="list">

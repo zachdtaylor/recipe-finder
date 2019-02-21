@@ -25,6 +25,16 @@
   font-size: 24px;
 }
 
+.button-back {
+  align-self: center;
+  margin-top: 2%;
+  width: 25%;
+  background: #A2B327;
+  color: white;
+  font-size: 24px;
+}
+
+.button-back:active, .button-back:focus, .button-back:hover,
 .button-submit:active, .button-submit:focus, .button-submit:hover,
 .button-to-home:active, .button-to-home:focus, .button-to-home:hover,
 .button-main:active, .button-main:focus, .button-main:hover {

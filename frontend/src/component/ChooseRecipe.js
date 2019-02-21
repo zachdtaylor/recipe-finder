@@ -1,4 +1,5 @@
 import React from 'react'
+import StyledButton from './StyledButton'
 import '../stylesheets/ChooseRecipe.css'
 
 class ChooseRecipe extends React.Component {
@@ -19,7 +20,8 @@ class ChooseRecipe extends React.Component {
       return (
         <div>
           <h1 className="choose-title">Choose a Recipe</h1>
-          Sorry, you haven't stored any recipes that you can make with those ingredients!
+          Sorry, we couldn't find any recipes that you can make with those ingredients!<br/>
+          <StyledButton page="/findrecipe" text="Back to Ingredient List" class="button-back"/>
         </div>
       )
     }
@@ -34,6 +36,7 @@ class ChooseRecipe extends React.Component {
           </div>
         )}
         </div>
+        <StyledButton page="/findrecipe" text="Back to Ingredient List" class="button-back"/>
       </div>
     )
   }

@@ -15,7 +15,7 @@ class ListBuilder extends React.Component {
   render() {
     return (
       <div className="listbuilder-container">
-        <Input type="text" placeholder="Type Ingredient (return to add)" value={this.props.listText} 
+        <Input type="text" placeholder="Ingredient (return to add)" value={this.props.listText} 
                className="input" onChange={this.props.handleChange} 
                onKeyPress={this.handleEnterPressed}/>
           <div className="list-container">

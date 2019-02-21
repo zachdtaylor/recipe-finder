@@ -11,8 +11,6 @@ class FindRecipe extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      listText: "",
-      ingredients: [],
       queryFinished: false,
       data: null
     }
@@ -43,22 +41,9 @@ class FindRecipe extends React.Component {
       console.log(res)
       let data = res.data.recipe.filter(recipe => 
         this.arrayContainsArray(recipe.ingredients.map(item => item.name),
-                               this.state.ingredients))
+                                this.props.ingredients))
       this.setState({ data: data, queryFinished: true })
     })
-  }
-
-  handleListTextChange = value => {
-    this.setState({ listText: value })
-  }
-
-  addIngredient = () => {
-    this.state.ingredients.push(this.state.listText)
-    this.setState({ listText: "" })
-  }
-
-  removeIngredient = ingredient => {
-    this.setState({ ingredients: this.state.ingredients.filter(item => item !== ingredient)})
   }
 
   render() {
@@ -66,7 +51,7 @@ class FindRecipe extends React.Component {
       return(
         <Redirect to={{
           pathname: '/chooserecipe',
-          state: { data: this.state.data, ingredients: this.state.ingredients }
+          state: { data: this.state.data, ingredients: this.props.ingredients }
         }}/>
       )
     }
@@ -74,12 +59,11 @@ class FindRecipe extends React.Component {
     return (
       <div className="container">
         <h1 style={{fontSize: "48px"}}>What Ingredients Do You Have?</h1>
-        <ListBuilder addItem={this.addIngredient}
-                     removeItem={this.removeIngredient}
-                     items={this.state.ingredients}
-                     listText={this.state.listText}
-                     handleChange={this.handleListTextChange}
-                     width="400px"/>
+        <ListBuilder addItem={this.props.addIngredient}
+                     removeItem={this.props.removeIngredient}
+                     items={this.props.ingredients}
+                     listText={this.props.listText}
+                     handleChange={this.props.handleListTextChange}/>
         <Button type="button" className="button-submit" onClick={this.query}>Submit</Button>
       </div>
     )
