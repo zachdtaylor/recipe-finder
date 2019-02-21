@@ -35,7 +35,7 @@ class App extends Component {
           <ul className="navbar">
             <li><Link to="/" className="nav-link">Home</Link></li>
             <li className="menu"><Link to="/addrecipe" className="nav-link">Add Recipe</Link></li>
-            <li className="menu"><Link to="/findrecipe" className="nav-link">Make Meal</Link></li>
+            <li className="menu"><Link to="/findrecipe" className="nav-link">Find Recipe</Link></li>
           </ul>
           <div className="content">
             <Route exact path="/" component={Home}/>
