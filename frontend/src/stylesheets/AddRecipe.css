@@ -19,6 +19,9 @@
 .list {
   height: 100%;
   background: white;
+  border-radius: 4px;
+  overflow: auto;
+  white-space: nowrap;
 }
 
 .button-save {

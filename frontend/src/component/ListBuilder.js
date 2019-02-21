@@ -25,11 +25,11 @@ class ListBuilder extends React.Component {
               <div style={{display: "table", width: "100%"}}>
                 <div className="list-item">
                   {item}
-                  <Button nativeType="button" className="button-remove" 
+                </div>
+                <Button nativeType="button" className="button-remove" 
                           onClick={() => this.props.removeItem(item)}>
                     Remove
-                  </Button>
-                </div>
+                </Button>
               </div>
               </li>)}
             </ul>

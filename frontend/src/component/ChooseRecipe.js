@@ -1,4 +1,5 @@
 import React from 'react'
+import '../stylesheets/ChooseRecipe.css'
 
 class ChooseRecipe extends React.Component {
   constructor(props) {
@@ -8,12 +9,16 @@ class ChooseRecipe extends React.Component {
     }
   }
 
+  handleRecipeClick = idx => {
+    console.log(this.state.recipes[idx])
+  }
+
   render() {
     console.log("Choose Recipe state:", this.state.recipes)
     if (this.state.recipes.length === 0) {
       return (
         <div>
-          <h1>Choose a Recipe</h1>
+          <h1 className="choose-title">Choose a Recipe</h1>
           Sorry, you haven't stored any recipes that you can make with those ingredients!
         </div>
       )
@@ -21,26 +26,34 @@ class ChooseRecipe extends React.Component {
 
     return (
       <div>
-        <h1>Choose a Recipe</h1>
-        <ul>
+        <h1 className="choose-title">Choose a Recipe</h1>
+        <div className="choose-scrollmenu">
         {this.state.recipes.map((recipe, i) =>
-          <li key={i}>
+          <div key={i} onClick={() => this.handleRecipeClick(i)}>
             {recipe.name}
-              <ul>
-                <li>{recipe.instructions}</li>
-                <li>
-                  Ingredients:
-                  <ul>
-                    {recipe.ingredients.map((item, j) => <li key={j}>{item.name}</li>)}
-                  </ul>
-                </li>
-              </ul>
-          </li>
+          </div>
         )}
-        </ul>
+        </div>
       </div>
     )
   }
 }
 
 export default ChooseRecipe
+
+
+
+
+
+
+
+
+/* <ul>
+<li>{recipe.instructions}</li>
+<li>
+  Ingredients:
+  <ul>
+    {recipe.ingredients.map((item, j) => <li key={j}>{item.name}</li>)}
+  </ul>
+</li>
+</ul> */

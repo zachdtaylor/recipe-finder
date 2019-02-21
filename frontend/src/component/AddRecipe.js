@@ -24,8 +24,8 @@ class AddRecipe extends React.Component {
     this.setState({ title: value })
   }
 
-  handleInstructionsChange = event => {
-    this.setState({ instructions: event.target.value })
+  handleInstructionsChange = value => {
+    this.setState({ instructions: value })
   }
 
   handleListTextChange = value => {
@@ -69,7 +69,7 @@ class AddRecipe extends React.Component {
     if (this.state.mutationFinished) {
       return (
         <div>
-          Your recipe was saved.<br/>
+          <h1 style={{fontSize: "48px"}}>Your recipe was saved.</h1><br/>
           <StyledButton page="/" class="button-to-home" text="Home"/>
         </div>
       )
@@ -95,7 +95,7 @@ class AddRecipe extends React.Component {
                    onChange={this.handleInstructionsChange}/><br/>
           </div>
         </div>
-        <Button className="button-save" nativeType="button" 
+        <Button className="button-submit" nativeType="button" 
                 onClick={this.postRecipe}>Save</Button>
       </div>
     )
