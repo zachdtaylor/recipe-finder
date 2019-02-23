@@ -19,7 +19,8 @@ const FindRecipe = props => {
                      removeItem={props.removeIngredient}
                      items={props.ingredients}
                      listText={props.listText}
-                     handleChange={props.handleListTextChange}/>
+                     handleChange={props.handleListTextChange}
+                     context="find"/>
         <Button type="button" className="button-submit" onClick={props.query}>Submit</Button>
       </div>
     )

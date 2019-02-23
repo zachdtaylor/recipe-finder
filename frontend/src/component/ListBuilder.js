@@ -1,14 +1,44 @@
 import React from 'react'
-import { Button, Input } from 'element-react'
+import { Button, Input, MessageBox } from 'element-react'
 import 'element-theme-default'
 import "../stylesheets/ListBuilder.css"
 
 class ListBuilder extends React.Component {
 
+  handleContextFind = () => {
+    if (/\d/.test(this.props.listText)) {
+      MessageBox.alert('Please don\'t specify an amount. Only the ingredient name is needed!', 
+                       'Name Only', {
+        confirmButtonText: 'OK',
+        confirmButtonClass: 'button-confirm',
+        showClose: false
+      })
+    } else {
+      this.props.addItem()
+    }
+  }
+
+  handleContextAdd = () => {
+    if (/\d/.test(this.props.listText)) {
+      this.props.addItem()
+    } else {
+      MessageBox.alert('Please enter an amount along with the ingredient.', 'Amount Needed', {
+        confirmButtonText: 'OK',
+        confirmButtonClass: 'button-confirm',
+        showClose: false
+      })
+    }
+  }
+
   handleEnterPressed = event => {
     if (event.key === 'Enter') {
       event.preventDefault() // So the page doesn't refresh
-      this.props.addItem(event)
+
+      if (this.props.context === 'find') {
+        this.handleContextFind()
+      } else {
+        this.handleContextAdd()
+      }
     }
   }
 

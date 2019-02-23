@@ -10,11 +10,29 @@
   margin: 0;
 }
 
+.el-message-box__title {
+  font-family: "Arima Madurai";
+  font-size: 21px;
+}
+
 /* .container {
   height: 100%;
   padding: 0;
   margin: 0;
 } */
+
+.button-confirm {
+  background: #A2B327;
+  color: white;
+  border-color: #A2B327;
+}
+
+.button-confirm:focus, .button-confirm:active, .button-confirm:hover {
+  background: #B6C457;
+  color: white;
+  border: 1;
+  border-color: #B6C457;
+}
 
 .button-add {
   background: #292C3F;
