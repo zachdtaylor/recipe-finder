@@ -18,6 +18,11 @@
 
 .navbar li {
   float: left;
+  height: 100%;
+}
+
+.navbar li.home {
+  padding-top: 3px;
 }
 
 .navbar li.menu {
@@ -26,7 +31,7 @@
 
 .nav-link {
   display: block;
-  padding: 13px;
+  padding: 10px;
   text-decoration: none;
   color: #2F330B;
 }

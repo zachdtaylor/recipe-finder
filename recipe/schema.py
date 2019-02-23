@@ -17,10 +17,7 @@ class IngredientType(DjangoObjectType):
 #     model = Amount
 
 class Query(graphene.ObjectType):
-  recipe = graphene.List(
-    RecipeType,
-    description='Return recipe information'
-  )
+  recipe = graphene.List(RecipeType, description='Return recipe information')
 
   def resolve_recipe(self, info):
     return Recipe.objects.all()
@@ -38,7 +35,6 @@ class AddRecipe(graphene.Mutation):
       recipe = Recipe.objects.create(name=name, instructions=instructions)
       for ingredient in ingredients:
         obj, created = Ingredient.objects.get_or_create(name=ingredient)
-        print(obj)
         recipe.ingredients.add(obj)
       return AddRecipe(recipe)
     except Exception as e:
