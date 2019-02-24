@@ -53,6 +53,7 @@ class App extends Component {
 
   query = () => {
     this.props.client.query({
+      fetchPolicy: 'network-only',
       query: gql`
         query {
           recipe {
