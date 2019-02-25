@@ -23,7 +23,13 @@ class App extends Component {
   }
 
   downloadShoppingList = ingredients => {
-    let blob = new Blob(["It worked!"], {type: "text/plain;charset=utf-8"})
+    let missing = ingredients.filter(val => 
+      !this.state.fRIngredients.some(ingr => 
+        this.format(val).includes(this.format(ingr))
+      )
+    )
+    let blob = new Blob(["Shopping List:\n\n" + missing.join("\n")], 
+                        {type: "text/plain;charset=utf-8"})
     saveAs(blob, "testFile.txt")
   }
 

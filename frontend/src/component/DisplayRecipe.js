@@ -19,12 +19,14 @@ const DisplayRecipe = props => {
           {instructions}
         </div>
       </div>
-      <div className="row-button-options">
-        <StyledButton page="/chooserecipe" text="Back to Recipe List" class="button-back"/>
-        <Button className="button-download" 
-                onClick={() => props.downloadShoppingList(ingredients)}>
-          Download Shopping List
-        </Button>
+      <div className="display-buttons">
+        <div className="display-buttons-grid">
+          <StyledButton page="/chooserecipe" text="Back to Recipe List" class="button-back-display"/>
+          <Button className="button-download" 
+                  onClick={() => props.downloadShoppingList(ingredients)}>
+            Download Shopping List
+          </Button>
+        </div>
       </div>
     </div>
   )
