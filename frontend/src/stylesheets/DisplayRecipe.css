@@ -1,3 +1,24 @@
 .display-instructions-container {
   text-align: left;
 }
+
+.row-button-options {
+  padding: 5px;
+}
+
+.button-download, .button-download:focus {
+  align-self: center;
+  margin-top: 2%;
+  width: 25%;
+  background: #A2B327;
+  color: white;
+  font-size: 24px;
+  border-color: #A2B327;
+}
+
+.button-download:active, .button-download:hover {
+  background: #B6C457;
+  color: white;
+  border: 1;
+  border-color: #B6C457;
+}

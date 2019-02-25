@@ -8,6 +8,7 @@ import ChooseRecipe from './ChooseRecipe'
 import DisplayRecipe from './DisplayRecipe'
 import gql from 'graphql-tag'
 import { withApollo } from 'react-apollo'
+import { saveAs } from 'file-saver'
 import logo from '../files/logo.png'
 
 class App extends Component {
@@ -19,6 +20,11 @@ class App extends Component {
       cRRecipes: [],
       queryFinished: false
     }
+  }
+
+  downloadShoppingList = ingredients => {
+    let blob = new Blob(["It worked!"], {type: "text/plain;charset=utf-8"})
+    saveAs(blob, "testFile.txt")
   }
 
   findRecipeAddIngredient = () => {
@@ -105,7 +111,9 @@ class App extends Component {
                                                   recipes={this.state.cRRecipes}
                                                   resetQueryState={this.resetQueryState}/>
             }/>
-            <Route path="/displayrecipe" component={DisplayRecipe}/>
+            <Route path="/displayrecipe" 
+                   render={props => <DisplayRecipe {...props}
+                                                   downloadShoppingList={this.downloadShoppingList}/>}/>
           </div>
         </div>
       </Router>

@@ -6,6 +6,7 @@
   font-size: 48px;
   margin: 0;
   padding: 0;
+  border-color: #A2B327;
 }
 
 .button-to-home {
@@ -14,6 +15,7 @@
   background: #A2B327;
   color: white;
   font-size: 36px;
+  border-color: #A2B327;
 }
 
 .button-submit {
@@ -23,6 +25,7 @@
   background: #A2B327;
   color: white;
   font-size: 24px;
+  border-color: #A2B327;
 }
 
 .button-back {
@@ -32,6 +35,7 @@
   background: #A2B327;
   color: white;
   font-size: 24px;
+  border-color: #A2B327;
 }
 
 .button-back:active, .button-back:focus, .button-back:hover,

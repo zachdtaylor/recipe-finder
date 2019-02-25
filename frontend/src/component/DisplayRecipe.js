@@ -1,6 +1,7 @@
 import React from 'react'
 import StaticList from './StaticList'
 import StyledButton from './StyledButton'
+import { Button } from 'element-react'
 import '../stylesheets/DisplayRecipe.css'
 
 const DisplayRecipe = props => {
@@ -18,7 +19,13 @@ const DisplayRecipe = props => {
           {instructions}
         </div>
       </div>
-      <StyledButton page="/chooserecipe" text="Back to Recipe List" class="button-back"/>
+      <div className="row-button-options">
+        <StyledButton page="/chooserecipe" text="Back to Recipe List" class="button-back"/>
+        <Button className="button-download" 
+                onClick={() => props.downloadShoppingList(ingredients)}>
+          Download Shopping List
+        </Button>
+      </div>
     </div>
   )
 }
