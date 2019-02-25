@@ -30,7 +30,7 @@ class App extends Component {
     )
     let blob = new Blob(["Shopping List:\n\n" + missing.join("\n")], 
                         {type: "text/plain;charset=utf-8"})
-    saveAs(blob, "testFile.txt")
+    saveAs(blob, "ShoppingList.txt")
   }
 
   findRecipeAddIngredient = () => {
