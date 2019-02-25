@@ -1,22 +1,23 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom'
 import StyledButton from './StyledButton'
 import '../stylesheets/ChooseRecipe.css'
 
 class ChooseRecipe extends React.Component {
   constructor(props) {
     super(props)
+    props.resetQueryState()
     this.state = {
-      recipes: props.location.state.data
+      clickedRecipe: null
     }
   }
 
   handleRecipeClick = idx => {
-    console.log(this.state.recipes[idx])
+    this.setState({ clickedRecipe: this.props.recipes[idx] })
   }
 
   render() {
-    console.log("Choose Recipe state:", this.state.recipes)
-    if (this.state.recipes.length === 0) {
+    if (this.props.recipes.length === 0) {
       return (
         <div>
           <h1 className="choose-title">Choose a Recipe</h1>
@@ -26,11 +27,25 @@ class ChooseRecipe extends React.Component {
       )
     }
 
+    if (this.state.clickedRecipe) {
+      let recipe = this.state.clickedRecipe
+      return (
+        <Redirect to={{
+          pathname: "/displayrecipe",
+          state: {
+            ingredients: recipe.ingredients.map(item => item.name),
+            title: recipe.name,
+            instructions: recipe.instructions
+          }
+        }}/>
+      )
+    }
+
     return (
       <div>
         <h1 className="choose-title">Choose a Recipe</h1>
         <div className="choose-scrollmenu">
-        {this.state.recipes.map((recipe, i) =>
+        {this.props.recipes.map((recipe, i) =>
           <div key={i} onClick={() => this.handleRecipeClick(i)}>
             {recipe.name}
           </div>

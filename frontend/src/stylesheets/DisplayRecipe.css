@@ -1,0 +1,35 @@
+.display-instructions-container {
+  text-align: left;
+}
+
+.display-buttons {
+  display: inline-block;
+  width: 50%;
+  margin-top: 2%;
+}
+
+.display-buttons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 5%;
+
+}
+
+.button-download, .button-back-display,
+.button-download:focus, .button-back-display:focus {
+  align-self: center;
+  margin-top: 2%;
+  width: 100%;
+  background: #A2B327;
+  color: white;
+  font-size: 24px;
+  border-color: #A2B327;
+}
+
+.button-download:active, .button-download:hover,
+.button-back-display:active, .button-back-display:hover  {
+  background: #B6C457;
+  color: white;
+  border: 1;
+  border-color: #B6C457;
+}
