@@ -23,7 +23,7 @@ const DisplayRecipe = props => {
         <div className="display-buttons-grid">
           <StyledButton page="/chooserecipe" text="Back to Recipe List" class="button-back-display"/>
           <Button className="button-download" 
-                  onClick={() => props.downloadShoppingList(ingredients)}>
+                  onClick={() => props.downloadShoppingList(ingredients, title)}>
             Download Shopping List
           </Button>
         </div>

@@ -22,15 +22,14 @@ class App extends Component {
     }
   }
 
-  downloadShoppingList = ingredients => {
+  downloadShoppingList = (ingredients, title) => {
     let missing = ingredients.filter(val => 
       !this.state.fRIngredients.some(ingr => 
         this.format(val).includes(this.format(ingr))
       )
     )
-    let blob = new Blob(["Shopping List:\n\n" + missing.join("\n")], 
-                        {type: "text/plain;charset=utf-8"})
-    saveAs(blob, "ShoppingList.txt")
+    let blob = new Blob([missing.join("\n")], {type: "text/plain;charset=utf-8"})
+    saveAs(blob, title + "ShoppingList.txt")
   }
 
   findRecipeAddIngredient = () => {
