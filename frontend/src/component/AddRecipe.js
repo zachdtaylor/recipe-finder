@@ -85,7 +85,7 @@ class AddRecipe extends React.Component {
                          items={this.state.ingredients}
                          listText={this.state.listText}
                          handleChange={this.handleListTextChange}
-                         width="200px"/>
+                         removeButtonText="X"/>
           </div>
           <div className="title-text-container">
             <Input type="text" placeholder="Title" onChange={this.handleTitleChange}/><br/>

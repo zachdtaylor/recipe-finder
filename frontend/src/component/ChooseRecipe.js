@@ -21,7 +21,7 @@ class ChooseRecipe extends React.Component {
       return (
         <div>
           <h1 className="choose-title">Choose a Recipe</h1>
-          Sorry, we couldn't find any recipes that you can make with those ingredients!<br/>
+          Sorry, you haven't saved any recipes that you can make with those ingredients!<br/>
           <StyledButton page="/findrecipe" text="Back to Ingredient List" class="button-back"/>
         </div>
       )

@@ -91,7 +91,7 @@ class App extends Component {
           <ul className="navbar">
             <li className="home">
               <Link to="/" className="nav-link-logo">
-                <img src={logo} alt="Recipe Finder Logo" style={{height: "32px", width: "160px"}}/>
+                <img src={logo} alt="Recipe Finder Logo" style={{height: "37px", width: "180px"}}/>
               </Link>
             </li>
             <li className="menu"><Link to="/addrecipe" className="nav-link">Add Recipe</Link></li>
