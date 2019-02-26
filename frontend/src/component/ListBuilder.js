@@ -58,7 +58,7 @@ class ListBuilder extends React.Component {
                 </div>
                 <Button nativeType="button" className="button-remove" 
                           onClick={() => this.props.removeItem(item)}>
-                    Remove
+                    {this.props.removeButtonText}
                 </Button>
               </div>
               </li>)}

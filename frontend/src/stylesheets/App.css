@@ -12,7 +12,7 @@
   padding: 0;
   padding-left: 15px;
   padding-right: 15px;
-  background-color: #F8FBEB;
+  background-color: white;
   overflow: hidden;
 }
 
@@ -27,6 +27,7 @@
 
 .navbar li.menu {
   float: right;
+  font-size: 20px;
 }
 
 .nav-link {
