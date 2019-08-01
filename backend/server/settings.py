@@ -32,7 +32,7 @@ SECRET_KEY = 'm#vqw87h5gr@6xg2_1*-=af6!qslhwz6r)zva3li0gltpw8s(w'
 DEBUG = True
 CORS_ORIGIN_ALLOW_ALL = DEBUG 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'backend']
 
 
 # Application definition
@@ -109,10 +109,10 @@ WSGI_APPLICATION = 'server.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'app',
+        'NAME': os.environ['DATABASE_NAME'],
         'USER': 'postgres',
-        'PASSWORD': 'docker',
-        'HOST': 'localhost',
+        'PASSWORD': os.environ['DATABASE_PASSWORD'],
+        'HOST': 'postgres',
         'PORT': '5432'
     }
 }

@@ -24,5 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # Using csrf_exempt to be able to use an electron version of graphiql to send auth headers
     url(r'^graphql', csrf_exempt(GraphQLView.as_view(graphiql=True))),
-    url(r'^', views.FrontendAppView.as_view())
+    # url(r'^', views.FrontendAppView.as_view())
 ]
